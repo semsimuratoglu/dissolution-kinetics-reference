@@ -1,17 +1,12 @@
 cff-version: 1.2.0
-title: "Independent Reference Engines for Dissolution Kinetics and f2 Similarity (Python & R)"
 message: "If you use this software, please cite it as below."
+title: "Independent Reference Engines for Dissolution Kinetics and f2 Similarity (Python & R)"
 authors:
   - family-names: "Muratoğlu"
     given-names: "Şemsi"
     orcid: "https://orcid.org/0009-0006-0798-5705"
+version: v1.0.0
+doi: 10.5281/zenodo.21310591
 date-released: 2026-07-11
-version: 1.0.0
 license: BSD-3-Clause
-repository-code: "https://github.com/placeholder/dissolution-kinetics-reference"
-keywords:
-  - dissolution
-  - f2-similarity
-  - bootstrap
-  - pharmacokinetics
-  - reference-implementation
+url: "https://github.com/semsimuratoglu/dissolution-kinetics-reference"
