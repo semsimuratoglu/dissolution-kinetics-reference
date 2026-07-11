@@ -1,0 +1,23 @@
+{
+  "source": "bootf2::shah1998",
+  "bootf2_version": "0.4.1",
+  "citation": "Shah et al., Pharm. Res. 1998, 15(6), 889-896",
+  "pairs": {
+    "shah_similar": {
+      "reference_arm": "ref",
+      "test_arm": "test1",
+      "ref_file": "shah_ref.csv",
+      "test_file": "shah_test.csv",
+      "role": "deterministic f2 anchor (≈60.03); bootstrap not required"
+    },
+    "shah_borderline": {
+      "reference_arm": "ref",
+      "test_arm": "test5",
+      "ref_file": "shah_ref.csv",
+      "test_file": "shah_borderline_test.csv",
+      "role": "borderline f2 (≈48.05); bootstrap not required under engine CV gate"
+    }
+  },
+  "time_points_min": [30, 60, 90, 180],
+  "n_units": 12
+}

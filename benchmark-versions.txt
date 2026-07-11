@@ -1,0 +1,10 @@
+# Pinned benchmark runtime versions — generated 2026-07-07 (chow 12-unit correction)
+run_date=2026-07-07
+python=3.9.6
+numpy=2.0.2
+scipy=1.13.1
+pandas=2.2.3
+pytest=8.3.4
+r=R version 4.6.1 (2026-06-24)
+r_packages=minpack.lm 1.2.4 bootf2 0.4.1 jsonlite 2.0.0
+node=v24.18.0

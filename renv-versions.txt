@@ -1,0 +1,7 @@
+# R dependencies for the independent reference engine
+# Install with: install.packages(c("minpack.lm", "bootf2", "jsonlite"))
+#
+# Pinned versions (see also benchmark-versions.txt):
+#   minpack.lm     1.2-4
+#   bootf2         0.4.1
+#   jsonlite       2.0.0

@@ -1,0 +1,8 @@
+dataset,best_fit_model[R],best_fit_model[Py],models_agree
+polli_slow_similar,Weibull,Weibull,yes
+polli_fast_vs_slow_dissimilar,Weibull,Weibull,yes
+mendyk,Hixson-Crowell,Hixson-Crowell,yes
+shah_similar,Weibull,Weibull,yes
+shah_borderline,Weibull,Weibull,yes
+tsong,Weibull,Weibull,yes
+chow,Korsmeyer-Peppas (full),Korsmeyer-Peppas (full),yes

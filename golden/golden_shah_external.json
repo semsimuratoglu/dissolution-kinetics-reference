@@ -1,0 +1,61 @@
+{
+  "_meta": {
+    "source": "Noce 2020 Table 5; Boddu 2024 Table IV",
+    "description": "Externally-anchored Shah dissolution similarity oracle. Observed f2 values are the regulatory mean-profile est.f2 on bootf2::shah1998 (ref vs test1/test5). Bootstrap 90% CIs transcribed from Noce et al. Eur J Pharm Sci 2020 Table 5 (1000 boot) and Boddu et al. AAPS PharmSciTech 2024 Table IV (RLD vs T1/T5). Literature reports percentile and BCa intervals for E(f2)/est.f2; engine does not bootstrap Shah pairs — CI fields are reference-only (SKIP_NO_BOOT at runtime).",
+    "citations": [
+      {
+        "key": "Noce2020",
+        "doi": "10.1016/j.ejps.2020.105259",
+        "table": "Table 5",
+        "note": "1000 bootstrap replicates"
+      },
+      {
+        "key": "Boddu2024",
+        "doi": "10.1208/s12249-023-02710-9",
+        "table": "Table IV",
+        "note": "RLD vs T1/T5 BCa ranges"
+      },
+      {
+        "key": "Shah1998",
+        "doi": "10.1023/A:1011976615750",
+        "data": "bootf2::shah1998"
+      }
+    ],
+    "tolerance_f2": 0.01,
+    "tolerance_ci": 2.0
+  },
+  "shah_similar": {
+    "pair_label": "shah_similar",
+    "ref_file": "shah_ref.csv",
+    "test_file": "shah_test.csv",
+    "test_arm": "test1",
+    "f2_observed": 60.03,
+    "f1_observed": 8.73,
+    "bootstrap": {
+      "percentile_90_ci_lower": 53.2,
+      "percentile_90_ci_upper": 67.5,
+      "bca_jackknife_ci_lower": 53.9,
+      "bca_jackknife_ci_upper": 70.2,
+      "boddu_2024_bca_lower_range": [53.8, 55.8],
+      "boddu_2024_bca_upper_range": [69.3, 73.0],
+      "similar_by_percentile": true
+    }
+  },
+  "shah_borderline": {
+    "pair_label": "shah_borderline",
+    "ref_file": "shah_ref.csv",
+    "test_file": "shah_borderline_test.csv",
+    "test_arm": "test5",
+    "f2_observed": 48.05,
+    "f1_observed": 13.95,
+    "bootstrap": {
+      "percentile_90_ci_lower": 45.99,
+      "percentile_90_ci_upper": 49.96,
+      "bca_jackknife_ci_lower": 46.15,
+      "bca_jackknife_ci_upper": 50.17,
+      "boddu_2024_bca_lower_range": [45.9, 46.3],
+      "boddu_2024_bca_upper_range": [49.95, 50.28],
+      "similar_by_percentile": false
+    }
+  }
+}

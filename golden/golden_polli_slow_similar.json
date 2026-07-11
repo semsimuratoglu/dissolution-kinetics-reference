@@ -1,0 +1,47 @@
+{
+  "_meta": {
+    "polli_set": "polli_slow_similar",
+    "description": "Externally-anchored golden for polli_slow_similar only (NOT polli_fast_hc_demo or polli_fast_vs_slow_dissimilar). Model fits on the 6-unit slow metoprolol reference match DDSolver supplementary (Zhang 2010; Polli 1997) to 4 dp. Similarity: Ref(6-unit mean) vs Test(Unit 6). AIC=N*ln(RSS)+2P, FDA/EMA 85% truncation.",
+    "data_files": {
+      "ref": "polli_slow_similar_ref.csv",
+      "test": "polli_slow_similar_test.csv"
+    },
+    "tolerance_deterministic": 0.01
+  },
+  "polli_slow_similar": {
+    "reference_model_fits": {
+      "Weibull": {
+        "alpha": 58.9722,
+        "beta": 1.4865,
+        "R2": 0.9958,
+        "AIC": 25.48,
+        "RMSE": 2.0976
+      },
+      "First-order": {
+        "k": 0.0668,
+        "R2": 0.9405,
+        "AIC": 42.35
+      },
+      "Hixson-Crowell": {
+        "kHC": 0.0183,
+        "R2": 0.9797,
+        "AIC": 34.75
+      },
+      "Korsmeyer-Peppas_full": {
+        "kKP": 12.1171,
+        "n": 0.5833,
+        "R2": 0.9042,
+        "AIC": 47.72
+      }
+    },
+    "similarity_ref_vs_test_unit6": {
+      "f2": 91.02,
+      "f1": 1.6,
+      "DE_ref": 69.42,
+      "DE_test": 70.61,
+      "MDT_ref": 13.41,
+      "MDT_test": 13.7,
+      "truncation_points_min": [5, 10, 15, 20, 25]
+    }
+  }
+}

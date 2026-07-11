@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# R
+.Rhistory
+.RData
+.Rproj.user
+.Ruserdata
+Rplots.pdf
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+~$*
+
+# Generated / local outputs (committed results/*.json and results/*.csv are kept)
+*.xlsx
+test_vs_ref_*.txt
+scripts/_engine_dump.json
+scripts/_python_reference_export.json
+scripts/_shah_bootf2_validation.json
+
+# Editor
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+.cursor/
