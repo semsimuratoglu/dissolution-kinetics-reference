@@ -1,7 +1,7 @@
 {
   "_meta": {
     "source": "Noce 2020 Table 5; Boddu 2024 Table IV",
-    "description": "Externally-anchored Shah dissolution similarity oracle. Observed f2 values are the regulatory mean-profile est.f2 on bootf2::shah1998 (ref vs test1/test5). Bootstrap 90% CIs transcribed from Noce et al. Eur J Pharm Sci 2020 Table 5 (1000 boot) and Boddu et al. AAPS PharmSciTech 2024 Table IV (RLD vs T1/T5). Literature reports percentile and BCa intervals for E(f2)/est.f2; engine does not bootstrap Shah pairs — CI fields are reference-only (SKIP_NO_BOOT at runtime).",
+    "description": "Externally-anchored Shah dissolution similarity oracle. Observed f2/f1 values (60.03 / 48.05) are the FDA-pathway mean-profile values on bootf2::shah1998 (ref vs test1/test5), using all four time points (30, 60, 90, 180 min); these match the literature. The EMA pathway (cut at the first time point at which either product's mean exceeds 85%) keeps 30, 60, 90 min only. Bootstrap 90% CIs transcribed from Noce et al. Eur J Pharm Sci 2020 Table 5 (1000 boot) and Boddu et al. AAPS PharmSciTech 2024 Table IV (RLD vs T1/T5). Literature reports percentile and BCa intervals for E(f2)/est.f2; engine does not bootstrap Shah pairs — CI fields are reference-only (SKIP_NO_BOOT at runtime).",
     "citations": [
       {
         "key": "Noce2020",

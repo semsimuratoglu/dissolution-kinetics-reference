@@ -255,7 +255,7 @@ def print_task1():
     bootf2_list = json.loads(bootf2_json.stdout)
     bootf2 = {x["label"]: x for x in bootf2_list}
 
-    print("\nNote: bootf2 est.f2 f2o (57.47/45.23) differs from mean-profile f2 (60.03/48.05) used by refeng/literature.")
+    print("\nNote: bootf2 est.f2 f2o (57.47/45.23) and the FDA-pathway f2 (60.03/48.05) used by refeng/literature are the same estimator on different time points: EMA keeps 30/60/90 min (cut at the first point where either product's mean > 85%); FDA keeps all four.")
     print("CI comparison below uses bootstrap distribution of mean-profile f2 (our engine) vs bootf2 est.f2 CI.\n")
     hdr = f"{'quantity':<28} {'our_engine':>12} {'bootf2':>12} {'Noce':>12} {'Boddu':>12} {'tol?':>6}"
     print(hdr)

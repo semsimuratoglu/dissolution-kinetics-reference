@@ -20,15 +20,18 @@ canonical labels via `refeng/polli_sets.py`.
 | tsong_ref.csv / tsong_test.csv | 6 | min | Tsong 1996. |
 | chow_ref.csv / chow_test.csv | 12 | HOURS | Chow & Ki 1997 Table 1 (Tsong–Hammerstrom); times 1,2,3,4,6,8,10 h; 12 units each arm. |
 | mendyk_reference_N12.csv / mendyk_test_N12.csv | 12 | min | **Synthetic high-variability set** (NOT Mendyk 2013 published raw data; times 15–120 min vs published 3–30 min). First-point CV ≈ 25.7% → forces bootstrap. |
-| shah_ref.csv / shah_test.csv | 12 | min | **bootf2::shah1998** — `ref` vs `test1` (shah_similar); f₂≈60.03; bootstrap skipped. |
-| shah_ref.csv / shah_borderline_test.csv | 12 | min | **bootf2::shah1998** — `ref` vs `test5` (shah_borderline); f₂≈48.05; bootstrap skipped. |
+| shah_ref.csv / shah_test.csv | 12 | min | **bootf2::shah1998** — `ref` vs `test1` (shah_similar); FDA-pathway f₂≈60.03 (all four time points); bootstrap skipped. |
+| shah_ref.csv / shah_borderline_test.csv | 12 | min | **bootf2::shah1998** — `ref` vs `test5` (shah_borderline); FDA-pathway f₂≈48.05 (all four time points); bootstrap skipped. |
+
+EMA pathway: time points are kept up to and including the first time point at which **either** product's mean exceeds 85%. For both Shah pairs the test arm crosses first (90 min), so EMA keeps 30, 60, 90 min.
 
 Export all Shah arms: `Rscript scripts/export_shah1998.R --out-dir data`.
 
 ## External Shah golden (`golden/golden_shah_external.json`)
 
 Literature oracle from **Noce 2020 Table 5** and **Boddu 2024 Table IV**:
-observed f₂ = 60.03 (test1) and 48.05 (test5) with published percentile/BCa 90% CIs.
+observed f₂ = 60.03 (test1) and 48.05 (test5) with published percentile/BCa 90% CIs. These are the
+FDA-pathway values (all four time points, 30–180 min), which match the literature.
 Compare via `--golden-shah-external golden/golden_shah_external.json`.
 
 ## Golden values (`golden_polli_slow_similar.json`)

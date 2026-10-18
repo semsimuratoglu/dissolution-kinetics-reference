@@ -381,12 +381,12 @@ run_bootf2_ema <- function(ref_path, test_path, n_boots = BOOT_ITER, seed = BOOT
     ci_row <- res$boot.ci[res$boot.ci$f2.type == "bc.f2" & grepl("Percentile", res$boot.ci$ci.type), ][1, ]
   }
   list(
-    E_f2 = est_row$boot.mean,
-    median = est_row$boot.median,
+    est_f2_boot_mean = est_row$boot.mean,
+    est_f2_boot_median = est_row$boot.median,
     bc_f2 = bc_row$f2o,
-    ci_lower = ci_row$ci.lower,
-    ci_upper = ci_row$ci.upper,
-    similar = ci_row$ci.lower >= 50,
+    bc_f2_ci_lower = ci_row$ci.lower,
+    bc_f2_ci_upper = ci_row$ci.upper,
+    bc_f2_similar = ci_row$ci.lower >= 50,
     f2_observed = est_row$f2o
   )
 }
@@ -634,9 +634,9 @@ run_pair_analysis <- function(ref_path, test_path, pair_label) {
     boot <- run_bootf2_ema(ref_path, test_path)
     py_boot <- python_style_bootstrap(ref$times, ref$units, test$units)
     cat(sprintf(
-      "  bootf2 EMA: f2_obs=%.4f, E(f2)=%.4f, median=%.4f, bc-f2=%.4f, 90%% CI=[%.4f, %.4f], similar=%s\n",
-      boot$f2_observed, boot$E_f2, boot$median, boot$bc_f2,
-      boot$ci_lower, boot$ci_upper, boot$similar
+      "  bootf2 EMA: f2_obs=%.4f, est.f2 boot mean=%.4f, est.f2 boot median=%.4f, bc-f2=%.4f, bc-f2 90%% CI=[%.4f, %.4f], bc-f2 similar=%s\n",
+      boot$f2_observed, boot$est_f2_boot_mean, boot$est_f2_boot_median, boot$bc_f2,
+      boot$bc_f2_ci_lower, boot$bc_f2_ci_upper, boot$bc_f2_similar
     ))
     cat(sprintf(
       "  Python-aligned unit bootstrap (EMA, seed=%d): f2_obs=%.4f, E(f2)=%.4f, median=%.4f, bc-f2=%.4f, 90%% CI=[%.4f, %.4f], similar=%s\n",

@@ -37,7 +37,8 @@ Per model and arm: R², adjusted R², RMSE = √(RSS/(n−p)), AIC = N·ln(RSS)+
 
 - **f₂** and **f₁** with FDA and EMA 85% truncation rules:
   - FDA: retain points up to the first time where **both** reference and test mean exceed 85%.
-  - EMA: retain points up to the first time where the **reference** mean exceeds 85%.
+  - EMA: retain points up to and including the first time where **either** reference or test mean exceeds 85%
+    (EMA BE guideline Appendix I: not more than one mean value > 85% for either formulation).
 - **DE%** (dissolution efficiency) and **MDT** (mean dissolution time) on the full profile.
 
 ### Bootstrap f₂
@@ -48,7 +49,7 @@ unit-level bootstrap resampling (10 000 iterations, seed 42) yields E(f₂), bc-
 
 ## Requirements
 
-- **Python 3.11+** (core engine)
+- **Python 3.9+** (tested with 3.9.6) (core engine)
 - **R 4.x** with `minpack.lm` and `bootf2` (optional independent cross-check)
 
 ## Quick start (Python)
