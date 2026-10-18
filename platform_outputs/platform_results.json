@@ -1,0 +1,949 @@
+{
+  "tool": "ReleaseKinetix",
+  "version": "0.1.0",
+  "aic_convention": "n*ln(SS)+2p",
+  "polli_datasets": {
+    "polli_slow_similar": {
+      "id": "polli_slow_similar",
+      "publication": "Polli et al. 1997; DDSolver Table 2 (Zhang 2010 supplement)",
+      "profile": "Slow metoprolol — reference = 6-unit mean, test = Unit 6",
+      "role": "golden_similarity",
+      "refFile": "polli_slow_similar_ref.csv",
+      "testFile": "polli_slow_similar_test.csv",
+      "expectedF2Primary": 91.02,
+      "expectedSimilar": true,
+      "notes": "Validated against DDSolver golden (Weibull α≈58.97, f₂≈91.02)."
+    },
+    "polli_fast_hc_demo": {
+      "id": "polli_fast_hc_demo",
+      "publication": "Polli 1997 fast Lopressor-like arm (engine NLS benchmark)",
+      "profile": "Fast Lopressor-like — 6-unit reference only (near-complete by 15 min)",
+      "role": "nls_arm_only",
+      "refFile": "polli_fast_hc_demo_ref.csv",
+      "expectedF2Primary": null,
+      "expectedSimilar": null,
+      "notes": "Hixson–Crowell unconstrained-fit demo (kHC≈0.033, R²≈0.83 on full profile)."
+    },
+    "polli_fast_vs_slow_dissimilar": {
+      "id": "polli_fast_vs_slow_dissimilar",
+      "publication": "Polli 1997 cross-formulation contrast (ReleaseKinetix compare_site)",
+      "profile": "Fast reference (6 units) vs slow test (6 units) — different formulations",
+      "role": "compare_site_dissimilar",
+      "refFile": "polli_fast_vs_slow_dissimilar_ref.csv",
+      "testFile": "polli_fast_vs_slow_dissimilar_test.csv",
+      "expectedF2Primary": 22.49,
+      "expectedSimilar": false,
+      "notes": "EMA-primary f₂≈22.49, DISSIMILAR; DDSolver Suite B/C fast-vs-slow pair."
+    }
+  },
+  "pairs": {
+    "polli_slow_similar": {
+      "dataset_label": "polli_slow_similar",
+      "ref_file": "polli_slow_similar_ref.csv",
+      "test_file": "polli_slow_similar_test.csv",
+      "time_unit": "min",
+      "units": 6,
+      "time_points": 7,
+      "reference_model_fits": {
+        "Zero-order": {
+          "converged": "6/6",
+          "k0": 2.897461240310078,
+          "R2": 0.6119394874477447,
+          "adjR2": 0.5343273849372937,
+          "RMSE": 18.61009890985142,
+          "AIC": 55.45339056825725,
+          "MSC": 0.671185036937942,
+          "fitN": 7,
+          "AICc": 56.253390568257245
+        },
+        "First-order": {
+          "converged": "6/6",
+          "k": 0.06683961995965541,
+          "R2": 0.9404573167264217,
+          "adjR2": 0.9285487800717062,
+          "RMSE": 7.315412764611071,
+          "AIC": 42.349004487821304,
+          "MSC": 2.5432401912859337,
+          "fitN": 7,
+          "AICc": 43.1490044878213
+        },
+        "Higuchi": {
+          "converged": "6/6",
+          "kH": 15.828010406900328,
+          "R2": 0.8884388361109835,
+          "adjR2": 0.8661266033331803,
+          "RMSE": 10.019159062743546,
+          "AIC": 46.797294329921954,
+          "MSC": 1.9077702138429844,
+          "fitN": 7,
+          "AICc": 47.59729432992195
+        },
+        "Hixson-Crowell": {
+          "converged": "6/6",
+          "kHC": 0.018343221072368906,
+          "R2": 0.9796836291703296,
+          "adjR2": 0.9756203550043955,
+          "RMSE": 4.265347645638272,
+          "AIC": 34.74819299122885,
+          "MSC": 3.629070405084858,
+          "fitN": 7,
+          "AICc": 35.548192991228845
+        },
+        "Korsmeyer-Peppas": {
+          "converged": "2/6",
+          "kKP": 3.221527772404195,
+          "n": 1.071515452497831,
+          "R2": 0.9984115975315611,
+          "adjR2": null,
+          "RMSE": 1.1525625256319139,
+          "AIC": 4.851898263263008,
+          "MSC": 5.112233625881923,
+          "fitN": 3,
+          "SMALL_SAMPLE_AIC": 1
+        },
+        "Korsmeyer-Peppas (full profile)": {
+          "converged": "6/6",
+          "kKP": 12.117029409061303,
+          "n": 0.5832792124195352,
+          "R2": 0.9042247294436668,
+          "adjR2": 0.8563370941655001,
+          "RMSE": 10.157596726677802,
+          "AIC": 47.71676837844922,
+          "MSC": 1.7764167783390903,
+          "fitN": 7,
+          "AICc": 50.71676837844922
+        },
+        "Weibull": {
+          "converged": "6/6",
+          "alpha": 58.97214844323824,
+          "beta": 1.4865363081454348,
+          "R2": 0.9958462675579982,
+          "adjR2": 0.9937694013369974,
+          "RMSE": 2.0976005261625197,
+          "AIC": 25.482933982892735,
+          "MSC": 4.952678834847161,
+          "fitN": 7,
+          "AICc": 28.482933982892735
+        }
+      },
+      "reference_aic_ranking": {
+        "reference_fit_n": 7,
+        "candidates": [
+          {
+            "model": "Weibull",
+            "aic": 25.482933982892735,
+            "deltaAic": 0
+          }
+        ]
+      },
+      "similarity": {
+        "f2_fda": 91.01649982076651,
+        "f2_ema": 91.01649982076651,
+        "f2_primary": 91.01649982076651,
+        "primary_pathway": "FDA",
+        "f1": 1.6033358783109155,
+        "trunc_fda_min": [
+          5,
+          10,
+          15,
+          20,
+          25
+        ],
+        "trunc_ema_min": [
+          5,
+          10,
+          15,
+          20,
+          25
+        ]
+      },
+      "exposure": {
+        "DE_ref": 69.42222222222222,
+        "DE_test": 70.60555555555555,
+        "MDT_ref": 13.412537917087965,
+        "MDT_test": 13.69704433497537
+      },
+      "cv_gate": {
+        "first_point_cv": 8.391191709088567,
+        "bootstrap_required": false
+      },
+      "bootstrap": null
+    },
+    "polli_fast_vs_slow_dissimilar": {
+      "dataset_label": "polli_fast_vs_slow_dissimilar",
+      "ref_file": "polli_fast_vs_slow_dissimilar_ref.csv",
+      "test_file": "polli_fast_vs_slow_dissimilar_test.csv",
+      "time_unit": "min",
+      "units": 6,
+      "time_points": 7,
+      "reference_model_fits": {
+        "Zero-order": {
+          "converged": "6/6",
+          "k0": 3.3554069767441863,
+          "R2": -2.361005187440752,
+          "adjR2": -3.0332062249289025,
+          "RMSE": 39.53401487802004,
+          "AIC": 66.02073696818944,
+          "MSC": -1.4957908413695435,
+          "fitN": 7,
+          "AICc": 66.82073696818944
+        },
+        "First-order": {
+          "converged": "6/6",
+          "k": 0.1533807692812386,
+          "R2": 0.9047380956693095,
+          "adjR2": 0.8856857148031715,
+          "RMSE": 6.65935409877424,
+          "AIC": 41.07410965698006,
+          "MSC": 2.0680130602317965,
+          "fitN": 7,
+          "AICc": 41.87410965698006
+        },
+        "Higuchi": {
+          "converged": "6/6",
+          "kH": 19.250476120188072,
+          "R2": 0.2093067493183286,
+          "adjR2": 0.051168099181994296,
+          "RMSE": 19.163912639142932,
+          "AIC": 55.87951740991806,
+          "MSC": -0.04704519018791654,
+          "fitN": 7,
+          "AICc": 56.679517409918056
+        },
+        "Hixson-Crowell": {
+          "converged": "6/6",
+          "kHC": 0.03274885096990534,
+          "R2": 0.8294473132913538,
+          "adjR2": 0.7953367759496245,
+          "RMSE": 8.875844660830913,
+          "AIC": 45.07939329735942,
+          "MSC": 1.4958296830347468,
+          "fitN": 7,
+          "AICc": 45.879393297359414
+        },
+        "Korsmeyer-Peppas": null,
+        "Korsmeyer-Peppas (full profile)": {
+          "converged": "6/6",
+          "kKP": 41.53666448833362,
+          "n": 0.260284266414223,
+          "R2": 0.6465072174196931,
+          "adjR2": 0.4697608261295397,
+          "RMSE": 14.051343446908504,
+          "AIC": 52.260657420902454,
+          "MSC": 0.4699348082428827,
+          "fitN": 7,
+          "AICc": 55.260657420902454
+        },
+        "Weibull": {
+          "converged": "6/6",
+          "alpha": 31.34106201932894,
+          "beta": 1.7502035443222823,
+          "R2": 0.9953901135142195,
+          "adjR2": 0.9930851702713294,
+          "RMSE": 1.5332827998305631,
+          "AIC": 20.75584802723974,
+          "MSC": 4.970621864480411,
+          "fitN": 7,
+          "AICc": 23.75584802723974
+        }
+      },
+      "reference_aic_ranking": {
+        "reference_fit_n": 7,
+        "candidates": [
+          {
+            "model": "Weibull",
+            "aic": 20.75584802723974,
+            "deltaAic": 0
+          }
+        ]
+      },
+      "similarity": {
+        "f2_fda": 26.21785686730006,
+        "f2_ema": 22.49003347476955,
+        "f2_primary": 22.49003347476955,
+        "primary_pathway": "EMA",
+        "f1": 46.228946191682816,
+        "trunc_fda_min": [
+          5,
+          10,
+          15,
+          20,
+          25
+        ],
+        "trunc_ema_min": [
+          5,
+          10,
+          15
+        ]
+      },
+      "exposure": {
+        "DE_ref": 85.47407407407408,
+        "DE_test": 69.42222222222222,
+        "MDT_ref": 6.226478494623658,
+        "MDT_test": 13.412537917087965
+      },
+      "cv_gate": {
+        "first_point_cv": 8.391191709088567,
+        "bootstrap_required": false
+      },
+      "bootstrap": null
+    },
+    "mendyk_reference_N12.csv:mendyk_test_N12.csv": {
+      "dataset_label": null,
+      "ref_file": "mendyk_reference_N12.csv",
+      "test_file": "mendyk_test_N12.csv",
+      "time_unit": "min",
+      "units": 12,
+      "time_points": 6,
+      "reference_model_fits": {
+        "Zero-order": {
+          "converged": "12/12",
+          "k0": 0.9602393162393165,
+          "R2": 0.6399787800654323,
+          "adjR2": 0.5499734750817903,
+          "RMSE": 15.743075801146128,
+          "AIC": 44.40313545555398,
+          "MSC": 0.8296322883568533,
+          "fitN": 6,
+          "AICc": 45.40313545555398
+        },
+        "First-order": {
+          "converged": "12/12",
+          "k": 0.021244065800581566,
+          "R2": 0.9790203443236004,
+          "adjR2": 0.9737754304045003,
+          "RMSE": 3.9598650940773172,
+          "AIC": 28.093760798336366,
+          "MSC": 3.547861397893121,
+          "fitN": 6,
+          "AICc": 29.093760798336366
+        },
+        "Higuchi": {
+          "converged": "12/12",
+          "kH": 8.81784433347836,
+          "R2": 0.9352867040573599,
+          "adjR2": 0.9191083800716998,
+          "RMSE": 6.9176524679592655,
+          "AIC": 34.705201846298124,
+          "MSC": 2.4459545565661607,
+          "fitN": 6,
+          "AICc": 35.705201846298124
+        },
+        "Hixson-Crowell": {
+          "converged": "12/12",
+          "kHC": 0.0058578108981077945,
+          "R2": 0.9941675180069559,
+          "adjR2": 0.9927093975086945,
+          "RMSE": 2.0232100417791408,
+          "AIC": 19.70702225281536,
+          "MSC": 4.945651155479955,
+          "fitN": 6,
+          "AICc": 20.70702225281536
+        },
+        "Korsmeyer-Peppas": {
+          "converged": "6/12",
+          "kKP": 1.499203588959354,
+          "n": 0.9488401506753162,
+          "R2": 0.9996018264450047,
+          "adjR2": null,
+          "RMSE": 0.40167405353902974,
+          "AIC": -3.640213934003994,
+          "MSC": 7.610201254135569,
+          "fitN": 3,
+          "SMALL_SAMPLE_AIC": 1
+        },
+        "Korsmeyer-Peppas (full profile)": {
+          "converged": "12/12",
+          "kKP": 6.462291181684413,
+          "n": 0.5891676974708223,
+          "R2": 0.959855143544413,
+          "adjR2": 0.9330919059073555,
+          "RMSE": 6.1084517369901725,
+          "AIC": 34.0223558051227,
+          "MSC": 2.5597622300953997,
+          "fitN": 6,
+          "AICc": 38.0223558051227
+        },
+        "Weibull": {
+          "converged": "12/12",
+          "alpha": 111.5965784368213,
+          "beta": 1.2027239582319924,
+          "R2": 0.9950295464473267,
+          "adjR2": 0.9917159107455443,
+          "RMSE": 2.0057858289619843,
+          "AIC": 19.958537253386755,
+          "MSC": 4.90373198871806,
+          "fitN": 6,
+          "AICc": 23.958537253386755
+        }
+      },
+      "reference_aic_ranking": {
+        "reference_fit_n": 6,
+        "candidates": [
+          {
+            "model": "Hixson-Crowell",
+            "aic": 19.70702225281536,
+            "deltaAic": 0
+          },
+          {
+            "model": "Weibull",
+            "aic": 19.958537253386755,
+            "deltaAic": 0.25151500057139486
+          }
+        ]
+      },
+      "similarity": {
+        "f2_fda": 70.91756563727262,
+        "f2_ema": 69.82300463513485,
+        "f2_primary": 69.82300463513485,
+        "primary_pathway": "EMA",
+        "f1": 6.681333950903196,
+        "trunc_fda_min": [
+          15,
+          30,
+          45,
+          60,
+          90,
+          120
+        ],
+        "trunc_ema_min": [
+          15,
+          30,
+          45,
+          60,
+          90
+        ]
+      },
+      "exposure": {
+        "DE_ref": 63.518229166666664,
+        "DE_test": 60.13125,
+        "MDT_ref": 39.8508149316509,
+        "MDT_test": 42.14619672720734
+      },
+      "cv_gate": {
+        "first_point_cv": 28.372539400994768,
+        "bootstrap_required": true
+      },
+      "bootstrap": {
+        "iterations": 10000,
+        "seed": 42,
+        "f2_observed": 69.82300463513485,
+        "E_f2": 66.15388944410988,
+        "median": 66.36713045783165,
+        "ci_lower": 54.07368116789315,
+        "ci_upper": 78.88492139909808,
+        "bc_f2": 73.49211982615982,
+        "similar": true
+      }
+    },
+    "shah_ref.csv:shah_test.csv": {
+      "dataset_label": null,
+      "ref_file": "shah_ref.csv",
+      "test_file": "shah_test.csv",
+      "time_unit": "min",
+      "units": 12,
+      "time_points": 4,
+      "reference_model_fits": {
+        "Zero-order": {
+          "converged": "12/12",
+          "k0": 0.6414444444444445,
+          "R2": 0.21595886578887602,
+          "adjR2": -0.17606170131668594,
+          "RMSE": 22.904819795850603,
+          "AIC": 31.42988765087651,
+          "MSC": -0.24425940354278838,
+          "fitN": 4,
+          "AICc": 33.42988765087651,
+          "SMALL_SAMPLE_AIC": 1
+        },
+        "First-order": {
+          "converged": "12/12",
+          "k": 0.01574996623562194,
+          "R2": 0.9826532956960173,
+          "adjR2": 0.973979943544026,
+          "RMSE": 3.3686528465943795,
+          "AIC": 15.821665604906658,
+          "MSC": 3.657796107949673,
+          "fitN": 4,
+          "AICc": 17.821665604906656,
+          "SMALL_SAMPLE_AIC": 1
+        },
+        "Higuchi": {
+          "converged": "12/12",
+          "kH": 7.443572453371385,
+          "R2": 0.9288549118489473,
+          "adjR2": 0.8932823677734211,
+          "RMSE": 6.87017960803967,
+          "AIC": 21.65169815786835,
+          "MSC": 2.2002879697092506,
+          "fitN": 4,
+          "AICc": 23.65169815786835,
+          "SMALL_SAMPLE_AIC": 1
+        },
+        "Hixson-Crowell": {
+          "converged": "12/12",
+          "kHC": 0.004398566438189045,
+          "R2": 0.9838274112215163,
+          "adjR2": 0.9757411168322747,
+          "RMSE": 2.9439142781281245,
+          "AIC": 14.42309400240588,
+          "MSC": 4.00743900857487,
+          "fitN": 4,
+          "AICc": 16.423094002405882,
+          "SMALL_SAMPLE_AIC": 1
+        },
+        "Korsmeyer-Peppas": null,
+        "Korsmeyer-Peppas (full profile)": {
+          "converged": "12/12",
+          "kKP": 8.048693586712847,
+          "n": 0.4844286046781978,
+          "R2": 0.9315302665765851,
+          "adjR2": 0.7945907997297555,
+          "RMSE": 8.246618436992955,
+          "AIC": 23.47053597433748,
+          "MSC": 1.745578515591969,
+          "fitN": 4,
+          "AICc": 35.47053597433748,
+          "SMALL_SAMPLE_AIC": 1
+        },
+        "Weibull": {
+          "converged": "12/12",
+          "alpha": 130.62848303947496,
+          "beta": 1.156082650034216,
+          "R2": 0.9944989882537224,
+          "adjR2": 0.9834969647611671,
+          "RMSE": 2.162719317382499,
+          "AIC": 12.302421996390335,
+          "MSC": 4.5376070100787524,
+          "fitN": 4,
+          "AICc": 24.302421996390336,
+          "SMALL_SAMPLE_AIC": 1
+        }
+      },
+      "reference_aic_ranking": {
+        "reference_fit_n": 4,
+        "candidates": [
+          {
+            "model": "Weibull",
+            "aic": 12.302421996390335,
+            "deltaAic": 0
+          }
+        ]
+      },
+      "similarity": {
+        "f2_fda": 60.029876725796186,
+        "f2_ema": 57.469238123306624,
+        "f2_primary": 57.469238123306624,
+        "primary_pathway": "EMA",
+        "f1": 11.981095864120519,
+        "trunc_fda_min": [
+          30,
+          60,
+          90,
+          180
+        ],
+        "trunc_ema_min": [
+          30,
+          60,
+          90
+        ]
+      },
+      "exposure": {
+        "DE_ref": 65.92708333333334,
+        "DE_test": 71.34791666666666,
+        "MDT_ref": 55.18406521167499,
+        "MDT_test": 48.58403683806601
+      },
+      "cv_gate": {
+        "first_point_cv": 10.607441961320072,
+        "bootstrap_required": false
+      },
+      "bootstrap": null
+    },
+    "shah_ref.csv:shah_borderline_test.csv": {
+      "dataset_label": null,
+      "ref_file": "shah_ref.csv",
+      "test_file": "shah_borderline_test.csv",
+      "time_unit": "min",
+      "units": 12,
+      "time_points": 4,
+      "reference_model_fits": {
+        "Zero-order": {
+          "converged": "12/12",
+          "k0": 0.6414444444444445,
+          "R2": 0.21595886578887602,
+          "adjR2": -0.17606170131668594,
+          "RMSE": 22.904819795850603,
+          "AIC": 31.42988765087651,
+          "MSC": -0.24425940354278838,
+          "fitN": 4,
+          "AICc": 33.42988765087651,
+          "SMALL_SAMPLE_AIC": 1
+        },
+        "First-order": {
+          "converged": "12/12",
+          "k": 0.01574996623562194,
+          "R2": 0.9826532956960173,
+          "adjR2": 0.973979943544026,
+          "RMSE": 3.3686528465943795,
+          "AIC": 15.821665604906658,
+          "MSC": 3.657796107949673,
+          "fitN": 4,
+          "AICc": 17.821665604906656,
+          "SMALL_SAMPLE_AIC": 1
+        },
+        "Higuchi": {
+          "converged": "12/12",
+          "kH": 7.443572453371385,
+          "R2": 0.9288549118489473,
+          "adjR2": 0.8932823677734211,
+          "RMSE": 6.87017960803967,
+          "AIC": 21.65169815786835,
+          "MSC": 2.2002879697092506,
+          "fitN": 4,
+          "AICc": 23.65169815786835,
+          "SMALL_SAMPLE_AIC": 1
+        },
+        "Hixson-Crowell": {
+          "converged": "12/12",
+          "kHC": 0.004398566438189045,
+          "R2": 0.9838274112215163,
+          "adjR2": 0.9757411168322747,
+          "RMSE": 2.9439142781281245,
+          "AIC": 14.42309400240588,
+          "MSC": 4.00743900857487,
+          "fitN": 4,
+          "AICc": 16.423094002405882,
+          "SMALL_SAMPLE_AIC": 1
+        },
+        "Korsmeyer-Peppas": null,
+        "Korsmeyer-Peppas (full profile)": {
+          "converged": "12/12",
+          "kKP": 8.048693586712847,
+          "n": 0.4844286046781978,
+          "R2": 0.9315302665765851,
+          "adjR2": 0.7945907997297555,
+          "RMSE": 8.246618436992955,
+          "AIC": 23.47053597433748,
+          "MSC": 1.745578515591969,
+          "fitN": 4,
+          "AICc": 35.47053597433748,
+          "SMALL_SAMPLE_AIC": 1
+        },
+        "Weibull": {
+          "converged": "12/12",
+          "alpha": 130.62848303947496,
+          "beta": 1.156082650034216,
+          "R2": 0.9944989882537224,
+          "adjR2": 0.9834969647611671,
+          "RMSE": 2.162719317382499,
+          "AIC": 12.302421996390335,
+          "MSC": 4.5376070100787524,
+          "fitN": 4,
+          "AICc": 24.302421996390336,
+          "SMALL_SAMPLE_AIC": 1
+        }
+      },
+      "reference_aic_ranking": {
+        "reference_fit_n": 4,
+        "candidates": [
+          {
+            "model": "Weibull",
+            "aic": 12.302421996390335,
+            "deltaAic": 0
+          }
+        ]
+      },
+      "similarity": {
+        "f2_fda": 48.05205166936506,
+        "f2_ema": 45.23340393182786,
+        "f2_primary": 45.23340393182786,
+        "primary_pathway": "EMA",
+        "f1": 19.571058439689093,
+        "trunc_fda_min": [
+          30,
+          60,
+          90,
+          180
+        ],
+        "trunc_ema_min": [
+          30,
+          60,
+          90
+        ]
+      },
+      "exposure": {
+        "DE_ref": 65.92708333333334,
+        "DE_test": 73.64375,
+        "MDT_ref": 55.18406521167499,
+        "MDT_test": 45.52498097895003
+      },
+      "cv_gate": {
+        "first_point_cv": 6.749624907712219,
+        "bootstrap_required": false
+      },
+      "bootstrap": null
+    },
+    "03a_tsong_REFERENCE.csv:03b_tsong_TEST.csv": {
+      "dataset_label": null,
+      "ref_file": "03a_tsong_REFERENCE.csv",
+      "test_file": "03b_tsong_TEST.csv",
+      "time_unit": "min",
+      "units": 6,
+      "time_points": 8,
+      "reference_model_fits": {
+        "Zero-order": {
+          "converged": "6/6",
+          "k0": 1.0704918918918918,
+          "R2": -7.262288825432845,
+          "adjR2": -8.639336963004984,
+          "RMSE": 43.602820163200455,
+          "AIC": 77.96216948877475,
+          "MSC": -2.340534971330387,
+          "fitN": 8,
+          "AICc": 78.62883615544142
+        },
+        "First-order": {
+          "converged": "6/6",
+          "k": 0.07739925894548616,
+          "R2": 0.46615597594804487,
+          "adjR2": 0.37718197193938563,
+          "RMSE": 11.010409729813544,
+          "AIC": 55.900214093306964,
+          "MSC": 0.4172094531030859,
+          "fitN": 8,
+          "AICc": 56.56688075997363
+        },
+        "Higuchi": {
+          "converged": "6/6",
+          "kH": 10.881989834223894,
+          "R2": -1.296129202564715,
+          "adjR2": -1.6788174029921679,
+          "RMSE": 22.872012428458685,
+          "AIC": 67.62132716028039,
+          "MSC": -1.0479296802685933,
+          "fitN": 8,
+          "AICc": 68.28799382694706
+        },
+        "Hixson-Crowell": {
+          "converged": "6/6",
+          "kHC": 0.012542460155274519,
+          "R2": -0.8841806507939721,
+          "adjR2": -1.1982107592596343,
+          "RMSE": 20.690216115839693,
+          "AIC": 66.01086549482919,
+          "MSC": -0.8466219720871928,
+          "fitN": 8,
+          "AICc": 66.67753216149586
+        },
+        "Korsmeyer-Peppas": null,
+        "Korsmeyer-Peppas (full profile)": {
+          "converged": "6/6",
+          "kKP": 39.98938513508489,
+          "n": 0.18075847755910399,
+          "R2": 0.9403729506998865,
+          "adjR2": 0.9165221309798411,
+          "RMSE": 4.041524994294715,
+          "AIC": 40.588740215828985,
+          "MSC": 2.3311436877878333,
+          "fitN": 8,
+          "AICc": 42.98874021582898
+        },
+        "Weibull": {
+          "converged": "6/6",
+          "alpha": 2.9662192327867416,
+          "beta": 0.4270050064307689,
+          "R2": 0.9864164922075648,
+          "adjR2": 0.9809830890905907,
+          "RMSE": 1.897232950321059,
+          "AIC": 28.244144289413793,
+          "MSC": 3.874218178589731,
+          "fitN": 8,
+          "AICc": 30.64414428941379
+        }
+      },
+      "reference_aic_ranking": {
+        "reference_fit_n": 8,
+        "candidates": [
+          {
+            "model": "Weibull",
+            "aic": 28.244144289413793,
+            "deltaAic": 0
+          }
+        ]
+      },
+      "similarity": {
+        "f2_fda": 40.83405475518206,
+        "f2_ema": 40.83405475518206,
+        "f2_primary": 40.83405475518206,
+        "primary_pathway": "FDA",
+        "f1": 18.197451888332758,
+        "trunc_fda_min": [
+          5,
+          10,
+          15,
+          20,
+          30,
+          60,
+          90
+        ],
+        "trunc_ema_min": [
+          5,
+          10,
+          15,
+          20,
+          30,
+          60,
+          90
+        ]
+      },
+      "exposure": {
+        "DE_ref": 79.675625,
+        "DE_test": 75.805625,
+        "MDT_ref": 15.43690647613146,
+        "MDT_test": 25.672030002419554
+      },
+      "cv_gate": {
+        "first_point_cv": 10.579805000479828,
+        "bootstrap_required": false
+      },
+      "bootstrap": null
+    },
+    "04a_chow_REFERENCE.csv:04b_chow_TEST.csv": {
+      "dataset_label": null,
+      "ref_file": "04a_chow_REFERENCE.csv",
+      "test_file": "04b_chow_TEST.csv",
+      "time_unit": "h",
+      "units": 12,
+      "time_points": 7,
+      "reference_model_fits": {
+        "Zero-order": {
+          "converged": "12/12",
+          "k0": 11.098913043478262,
+          "R2": -2.578401830440282,
+          "adjR2": -3.2940821965283384,
+          "RMSE": 26.905176482727956,
+          "AIC": 60.60471991900308,
+          "MSC": -1.5340852766090365,
+          "fitN": 7,
+          "AICc": 61.40471991900308
+        },
+        "First-order": {
+          "converged": "12/12",
+          "k": 0.3091015061686455,
+          "R2": 0.3605070149001542,
+          "adjR2": 0.23260841788018508,
+          "RMSE": 11.16311402886199,
+          "AIC": 48.22338763654591,
+          "MSC": 0.23467647802770109,
+          "fitN": 7,
+          "AICc": 49.023387636545905
+        },
+        "Higuchi": {
+          "converged": "12/12",
+          "kH": 30.699971663024357,
+          "R2": 0.46516649917124697,
+          "adjR2": 0.3581997990054963,
+          "RMSE": 10.265270363414382,
+          "AIC": 47.03393471963901,
+          "MSC": 0.4045983233001164,
+          "fitN": 7,
+          "AICc": 47.833934719639004
+        },
+        "Hixson-Crowell": {
+          "converged": "12/12",
+          "kHC": 0.08407880251081717,
+          "R2": -0.07303215176990564,
+          "adjR2": -0.28763858212388677,
+          "RMSE": 14.53314567609956,
+          "AIC": 51.950715117665375,
+          "MSC": -0.2977988764179363,
+          "fitN": 7,
+          "AICc": 52.75071511766537
+        },
+        "Korsmeyer-Peppas": {
+          "converged": "2/12",
+          "kKP": 40.922954688838786,
+          "n": 0.297827574855038,
+          "R2": 0.996215431977188,
+          "adjR2": null,
+          "RMSE": 0.6318651951260895,
+          "AIC": 2.0438676212361693,
+          "MSC": 4.721317639941802,
+          "fitN": 4,
+          "AICc": 14.043867621236169,
+          "SMALL_SAMPLE_AIC": 1
+        },
+        "Korsmeyer-Peppas (full profile)": {
+          "converged": "12/12",
+          "kKP": 45.40165878997832,
+          "n": 0.2763098915123468,
+          "R2": 0.9899502774431745,
+          "adjR2": 0.9849254161647618,
+          "RMSE": 1.5019009647444754,
+          "AIC": 19.28420956922606,
+          "MSC": 4.368844773359107,
+          "fitN": 7,
+          "AICc": 22.28420956922606
+        },
+        "Weibull": {
+          "converged": "12/12",
+          "alpha": 1.7711388965254298,
+          "beta": 0.5051730910009932,
+          "R2": 0.9846305051463898,
+          "adjR2": 0.976945757719585,
+          "RMSE": 1.8753890602818675,
+          "AIC": 22.44555665504812,
+          "MSC": 3.9172237610988137,
+          "fitN": 7,
+          "AICc": 25.44555665504812
+        }
+      },
+      "reference_aic_ranking": {
+        "reference_fit_n": 7,
+        "candidates": [
+          {
+            "model": "K-P full",
+            "aic": 19.28420956922606,
+            "deltaAic": 0
+          }
+        ]
+      },
+      "similarity": {
+        "f2_fda": 63.585502553697445,
+        "f2_ema": 64.70570887390703,
+        "f2_primary": 64.70570887390703,
+        "primary_pathway": "EMA",
+        "f1": 6.364031277150308,
+        "trunc_fda_min": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          8,
+          10
+        ],
+        "trunc_ema_min": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          8
+        ]
+      },
+      "exposure": {
+        "DE_ref": 65.75416666666666,
+        "DE_test": 67.4125,
+        "MDT_ref": 2.2944335937499996,
+        "MDT_test": 2.672554347826087
+      },
+      "cv_gate": {
+        "first_point_cv": 7.106678404500369,
+        "bootstrap_required": false
+      },
+      "bootstrap": null
+    }
+  }
+}
