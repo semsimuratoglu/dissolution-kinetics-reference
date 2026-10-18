@@ -1,0 +1,70 @@
+{
+  "_meta": {
+    "description": "External EMA oracle for the 85% truncation rule (cut at the first time point at which EITHER product's mean exceeds 85%, retaining that point). f2 and retained time points from bootf2; f1 targets from the f1 formula on the retained points.",
+    "source": "bootf2 0.4.1 (R 4.6.1)",
+    "call": "bootf2:::calcf2(test, ref, regulation = \"EMA\", digits = 10, cv.rule = FALSE, min.points = 1, both.TR.85 = FALSE, message = FALSE, f2.type = \"est.f2\", plot = FALSE, time.unit = \"h\" (chow) / \"min\" (others))",
+    "arguments": {
+      "regulation": "EMA",
+      "digits": 10,
+      "cv.rule": false,
+      "min.points": 1,
+      "both.TR.85": false,
+      "message": false,
+      "f2.type": "est.f2",
+      "plot": false,
+      "time.unit": {"chow": "h", "default": "min"}
+    },
+    "input_note": "First CSV column renamed to Time; calcf2 run on CSVs byte-identical to data/ (sha256 below).",
+    "date": "2026-10-18",
+    "rule_reference": "EMA Guideline on the Investigation of Bioequivalence (CPMP/EWP/QWP/1401/98 Rev. 1/Corr**), Appendix I",
+    "f1_source": "f1 = 100 * sum|R - T| / sum R on the retained points; rounded to 4 decimals",
+    "tolerance_f2": 1e-9,
+    "tolerance_f1": 1e-4
+  },
+  "cases": [
+    {
+      "label": "shah_similar",
+      "ref_file": "shah_ref.csv",
+      "test_file": "shah_test.csv",
+      "ref_sha256": "c7f074c1e700d2272c0ef0e49afa2d3971cb3a1f4b1dae16230c64a11600e80f",
+      "test_sha256": "97960033a3d90b95889226915b9bcf7690171b8f87e044dd9e7da0cf23424ae5",
+      "f2": 57.4692381233066,
+      "points_kept": 3,
+      "retained_times": [30, 60, 90],
+      "f1": 11.9811
+    },
+    {
+      "label": "shah_borderline",
+      "ref_file": "shah_ref.csv",
+      "test_file": "shah_borderline_test.csv",
+      "ref_sha256": "c7f074c1e700d2272c0ef0e49afa2d3971cb3a1f4b1dae16230c64a11600e80f",
+      "test_sha256": "37fbbf2d48139c1168b33fb07fca771c4a486021428c3de832c57e9b0cbd8309",
+      "f2": 45.2334039318279,
+      "points_kept": 3,
+      "retained_times": [30, 60, 90],
+      "f1": 19.5711
+    },
+    {
+      "label": "chow",
+      "ref_file": "chow_ref.csv",
+      "test_file": "chow_test.csv",
+      "ref_sha256": "4ddbc7da7eef4812b2aeeb748796aebbaf3797bcab254d00c3f2704dc860c8da",
+      "test_sha256": "48e774feee2c4639b40be82e1ebf279de23f94e74c8949c9d038322f951a51f3",
+      "f2": 64.705708873907,
+      "points_kept": 6,
+      "retained_times": [1, 2, 3, 4, 6, 8],
+      "f1": 6.3640
+    },
+    {
+      "label": "mendyk",
+      "ref_file": "mendyk_reference_N12.csv",
+      "test_file": "mendyk_test_N12.csv",
+      "ref_sha256": "b376413218fd3123b563d89db0dd4683c3c27eea396691ef6a0c5ceb2634e1a6",
+      "test_sha256": "8747b51aabe400a7d2b76ca5ff8e0af503ebc2432f18c55e115abe4d4981c9df",
+      "f2": 69.8230046351349,
+      "points_kept": 5,
+      "retained_times": [15, 30, 45, 60, 90],
+      "f1": null
+    }
+  ]
+}

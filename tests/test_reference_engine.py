@@ -236,3 +236,27 @@ def test_polli_fast_vs_slow_dissimilar_not_golden():
     with open(ROOT / "golden" / "golden_polli_slow_similar.json") as fh:
         golden = json.load(fh)
     assert compare_polli_slow_similar_pair(pair, golden) == []
+
+
+with open(ROOT / "golden" / "bootf2_ema_oracle.json") as _fh:
+    BOOTF2_EMA_ORACLE = json.load(_fh)
+
+
+@pytest.mark.parametrize(
+    "case",
+    BOOTF2_EMA_ORACLE["cases"],
+    ids=[c["label"] for c in BOOTF2_EMA_ORACLE["cases"]],
+)
+def test_ema_either_product_bootf2(case):
+    from refeng.io import load_dissolution_csv
+    from refeng.metrics import compute_profile_metrics
+
+    meta = BOOTF2_EMA_ORACLE["_meta"]
+    times, ref_units = load_dissolution_csv(ROOT / "data" / case["ref_file"])
+    _, test_units = load_dissolution_csv(ROOT / "data" / case["test_file"])
+    metrics = compute_profile_metrics(times, ref_units, test_units, truncation="EMA")
+
+    assert metrics["truncated_times"] == [float(t) for t in case["retained_times"]]
+    assert abs(metrics["f2"] - case["f2"]) < meta["tolerance_f2"]
+    if case["f1"] is not None:
+        assert abs(metrics["f1"] - case["f1"]) < meta["tolerance_f1"]
