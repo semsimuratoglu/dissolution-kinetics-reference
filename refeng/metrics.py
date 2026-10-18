@@ -40,10 +40,10 @@ def fda_truncation(
 def ema_truncation(
     times: np.ndarray, ref_means: np.ndarray, test_means: np.ndarray
 ) -> TruncationResult:
-    """EMA pathway: truncate once the reference mean exceeds 85%."""
-    ref_above = ref_means > 85.0
-    if np.any(ref_above):
-        last_idx = int(np.argmax(ref_above))
+    """EMA pathway: keep points up to and including the first where EITHER mean exceeds 85%."""
+    any_above = (ref_means > 85.0) | (test_means > 85.0)
+    if np.any(any_above):
+        last_idx = int(np.argmax(any_above))
         kept = np.arange(last_idx + 1)
     else:
         kept = np.arange(len(times))

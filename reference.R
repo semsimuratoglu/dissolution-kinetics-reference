@@ -291,9 +291,9 @@ fda_truncate <- function(times, ref_mean, test_mean) {
 }
 
 ema_truncate <- function(times, ref_mean, test_mean) {
-  ref_above <- ref_mean > 85
-  if (any(ref_above)) {
-    last <- which(ref_above)[1]
+  any_above <- (ref_mean > 85) | (test_mean > 85)
+  if (any(any_above)) {
+    last <- which(any_above)[1]
     idx <- seq_len(last)
   } else {
     idx <- seq_along(times)
