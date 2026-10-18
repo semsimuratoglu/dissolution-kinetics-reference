@@ -1,7 +1,7 @@
 # Reference engine export
 
 Full export from the independent Python reference engine in this repository.
-Generated: 2026-07-11 13:21 UTC
+Generated: 2026-10-18 16:33 UTC
 
 ## Canonical dataset registry
 
@@ -305,7 +305,7 @@ f₂/f₁ with FDA+EMA 85% truncation; DE%/MDT on full profile. Bootstrap for me
 | E(f₂) median (bootstrap) | 66.1144 |
 | bc-f₂ | 73.4921 |
 | 90% CI lower | 53.8830 |
-| 90% CI upper | 78.9937 |
+| 90% CI upper | 78.9378 |
 | similar (CI lower ≥ 50) | True |
 | seed | 42 |
 
@@ -344,13 +344,13 @@ f₂/f₁ with FDA+EMA 85% truncation; DE%/MDT on full profile. Bootstrap for me
 
 | Metric | FDA | EMA |
 |--------|-----|-----|
-| f₂ | 60.0299 | 60.0299 |
-| f₁ | 8.7287 | 8.7287 |
+| f₂ | 60.0299 | 57.4692 |
+| f₁ | 8.7287 | 11.9811 |
 | DE% (ref) | 65.93 | n/a |
 | DE% (test) | 71.35 | n/a |
 | MDT (ref) | 55.18 | n/a |
 | MDT (test) | 48.58 | n/a |
-| Truncation times | 30, 60, 90, 180 | 30, 60, 90, 180 |
+| Truncation times | 30, 60, 90, 180 | 30, 60, 90 |
 
 #### CV gate / Bootstrap
 
@@ -391,13 +391,13 @@ f₂/f₁ with FDA+EMA 85% truncation; DE%/MDT on full profile. Bootstrap for me
 
 | Metric | FDA | EMA |
 |--------|-----|-----|
-| f₂ | 48.0521 | 48.0521 |
-| f₁ | 13.9500 | 13.9500 |
+| f₂ | 48.0521 | 45.2334 |
+| f₁ | 13.9500 | 19.5711 |
 | DE% (ref) | 65.93 | n/a |
 | DE% (test) | 73.64 | n/a |
 | MDT (ref) | 55.18 | n/a |
 | MDT (test) | 45.52 | n/a |
-| Truncation times | 30, 60, 90, 180 | 30, 60, 90, 180 |
+| Truncation times | 30, 60, 90, 180 | 30, 60, 90 |
 
 #### CV gate / Bootstrap
 
