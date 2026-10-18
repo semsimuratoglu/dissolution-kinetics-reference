@@ -1,5 +1,5 @@
 {
-  "export_date_utc": "2026-07-11 13:21 UTC",
+  "export_date_utc": "2026-10-18 16:28 UTC",
   "engines": {
     "python": {
       "implementation": "scipy.optimize.curve_fit (TRF/LM)",
@@ -18,7 +18,7 @@
         "R": "4.6.1",
         "minpack_lm": "1.2.4",
         "bootf2": "0.4.1",
-        "export_date": "2026-07-11 13:21:45 UTC"
+        "export_date": "2026-10-18 16:28:17 UTC"
       }
     }
   },
@@ -586,7 +586,7 @@
       "bootstrap": {
         "E_f2": 66.1538894441099,
         "ci_lower": 53.88299718838699,
-        "ci_upper": 78.9937467165244,
+        "ci_upper": 78.93784571357045,
         "decision": "similar"
       },
       "ref_models": {
@@ -806,9 +806,9 @@
       "n_ref_units": 12,
       "n_test_units": 12,
       "similarity": {
-        "f2_primary": 60.02987672579619,
-        "f1_primary": 8.72872159002821,
-        "primary_rule": "FDA",
+        "f2_primary": 57.46923812330663,
+        "f1_primary": 11.981095864120519,
+        "primary_rule": "EMA",
         "first_point_CV": 10.60744196132007,
         "high_variability": false
       },
@@ -1030,9 +1030,9 @@
       "n_ref_units": 12,
       "n_test_units": 12,
       "similarity": {
-        "f2_primary": 48.05205166936506,
-        "f1_primary": 13.949955040153805,
-        "primary_rule": "FDA",
+        "f2_primary": 45.23340393182785,
+        "f1_primary": 19.5710584396891,
+        "primary_rule": "EMA",
         "first_point_CV": 6.749624907712219,
         "high_variability": false
       },
@@ -1481,9 +1481,9 @@
       "n_ref_units": 12,
       "n_test_units": 12,
       "similarity": {
-        "f2_primary": 63.585502553697445,
-        "f1_primary": 6.62757640369581,
-        "primary_rule": "FDA",
+        "f2_primary": 64.70570887390703,
+        "f1_primary": 6.364031277150307,
+        "primary_rule": "EMA",
         "first_point_CV": 7.10667840450037,
         "high_variability": false
       },
@@ -2182,7 +2182,7 @@
       "bootstrap": {
         "E_f2": 66.1538894441,
         "ci_lower": 54.0484586627,
-        "ci_upper": 78.8588132995,
+        "ci_upper": 78.8321801272,
         "decision": "similar"
       },
       "ref_models": {
@@ -2402,9 +2402,9 @@
       "n_ref_units": 12,
       "n_test_units": 12,
       "similarity": {
-        "f2_primary": 60.0298767258,
-        "f1_primary": 8.72872159,
-        "primary_rule": "FDA",
+        "f2_primary": 57.4692381233,
+        "f1_primary": 11.9810958641,
+        "primary_rule": "EMA",
         "first_point_CV": 10.6074419613,
         "high_variability": false
       },
@@ -2626,9 +2626,9 @@
       "n_ref_units": 12,
       "n_test_units": 12,
       "similarity": {
-        "f2_primary": 48.0520516694,
-        "f1_primary": 13.9499550402,
-        "primary_rule": "FDA",
+        "f2_primary": 45.2334039318,
+        "f1_primary": 19.5710584397,
+        "primary_rule": "EMA",
         "first_point_CV": 6.7496249077,
         "high_variability": false
       },
@@ -3077,9 +3077,9 @@
       "n_ref_units": 12,
       "n_test_units": 12,
       "similarity": {
-        "f2_primary": 63.5855025537,
-        "f1_primary": 6.6275764037,
-        "primary_rule": "FDA",
+        "f2_primary": 64.7057088739,
+        "f1_primary": 6.3640312772,
+        "primary_rule": "EMA",
         "first_point_CV": 7.1066784045,
         "high_variability": false
       },
